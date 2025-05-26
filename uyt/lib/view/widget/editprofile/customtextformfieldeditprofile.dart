@@ -13,13 +13,13 @@ class Customtextformfieldeditprofile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
       child: Container(
         height: 35,
-        //margin:const EdgeInsets.only(top: 20),
+        
         child: TextFormField(
           validator: valid,
-          // textAlign: TextAlign.center,
+          
             controller: mycontroller,             
             decoration: InputDecoration(
-             //contentPadding: EdgeInsets.symmetric(vertical: 5),
+             
              suffixIcon: Icon(icondata),suffixIconColor: Colors.grey,
              focusedBorder:const OutlineInputBorder(
                borderSide: BorderSide(color:ColorApp.primarycolor,width: 2)

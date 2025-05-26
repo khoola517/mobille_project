@@ -28,13 +28,6 @@ class Api {
     );
 
   get data => null;
-    // Map<String,dynamic>toJson()=>{
-    //   "userId":userId,
-    //   "id":id,
-    //   "title":title,
-    //   "body":body
-
-    // };
 Map<String, dynamic> toJson() => {
         "userId": userId,
         "id": id,

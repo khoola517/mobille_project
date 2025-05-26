@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:uyt/controller/Allvaccinations_controller.dart';
+
 import 'package:uyt/core/constant/imageassset.dart';
 import 'package:uyt/data/model/onboardingmodel.dart';
 

@@ -50,12 +50,6 @@ class Mylocale implements Translations{
 
 
       },
-    "en":{
-      "1":"HomePage",
-      "2":"username",
-      "3":"password",
-      "4":"login"
-      },
       
   };
 }

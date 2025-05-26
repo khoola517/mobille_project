@@ -24,14 +24,6 @@ class OnBoarding extends StatelessWidget {
               },
             child:  Text("35".tr,style: TextStyle(color: Colors.black),),
           ),
-        // actions: [
-        //   TextButton(
-        //     onPressed: () {
-        //       Get.offAll(Login());
-        //       },
-        //     child:  Text("35".tr),
-        //   ),
-        // ],
         ),
       body:const SafeArea(
         
@@ -47,19 +39,10 @@ class OnBoarding extends StatelessWidget {
                 children:[
                    dotcontroller(),
                    Spacer(flex: 2,),
-                  // const SizedBox(height: 40),
-                  
+      
                      Custombutton(),
                      const SizedBox(height: 30),
-                     
-                     //GetBuilder<OnboardingControllerImp>(
-                    //builder: (_controller) => Row(
-                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     // children: _controller.getButtons(),
-                    //),
-                     //)
-                     
-
+                  
                 ],
                 
               ))

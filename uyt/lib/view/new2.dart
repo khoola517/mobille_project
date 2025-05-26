@@ -37,67 +37,74 @@ class VaccineDetailView extends StatelessWidget {
           }
 
           final data = snapshot.data!;
-          return Padding(
-            padding: const EdgeInsets.all(25),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(child: Image.asset("images/last.png",height: 200,width: 300,fit: BoxFit.fill,)),
-                const SizedBox(height: 10,),
-                Text('اسم اللقاح "${data.vaccineName}"', style:const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,fontFamily: "Flutter")),
-                const SizedBox(height: 10),
-                const Text(' الوصف العام  :', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,fontFamily: "Flutter")),
-                const SizedBox(height: 10),
-                Text('${data.vaccineDescription}', style:const TextStyle(fontSize: 16,fontFamily: "Flutter")),
-                const SizedBox(height: 10),
-                const Text('مشاهدة كافة جرعات اللقاح', style:const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,fontFamily: "Flutter")),
-                const SizedBox(height: 10),
-                Expanded(
-                  child: Container(
-                    //height: 120,
-                   // width: 300,
-                    child: Card(
-                      color: Colors.white,
-                      elevation: 5,
-                      child: Column(
-                        children: [
-                         const Padding(
-                            padding:  EdgeInsets.only(top: 10,bottom: 10),
-                            child:  Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text("الجرعة", style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,fontFamily: "Flutter")),
-                                Text("العمر", style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,fontFamily: "Flutter")),
-                                //Divider(),
-                              ],
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Column(children: [ ...?data.vaccineDoses?.map((dose) => Padding(
-                                padding: const EdgeInsets.only(bottom: 10),
-                                child: Text('${dose.doseNumber}', style:const TextStyle(fontSize: 16,fontFamily: "Flutter")),
-                              )),],),
-                            Column(children: [ ...?data.vaccineDoses?.map((dose) => Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: Text(' ${dose.vaccineAge}', style:const TextStyle(fontSize: 16,fontFamily: "Flutter")),
-                            )),],),],),
-                        ],
-                      ),
-                    ),
+          return SingleChildScrollView(
+  padding: const EdgeInsets.all(25),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Center(
+        child: Image.asset("images/last.png", height: 200, width: 300, fit: BoxFit.fill),
+      ),
+      const SizedBox(height: 10),
+      Text('اسم اللقاح "${data.vaccineName}"',
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "Flutter")),
+      const SizedBox(height: 10),
+      const Text('الوصف العام:',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "Flutter")),
+      const SizedBox(height: 10),
+      Text('${data.vaccineDescription}', style: const TextStyle(fontSize: 16, fontFamily: "Flutter")),
+      const SizedBox(height: 10),
+      const Text('مشاهدة كافة جرعات اللقاح',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "Flutter")),
+      const SizedBox(height: 10),
+      Card(
+        color: Colors.white,
+        elevation: 5,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: [
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("الجرعة", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: "Flutter")),
+                  Text("العمر", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: "Flutter")),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    children: data.vaccineDoses!.map((dose) => Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text('${dose.doseNumber}', style: const TextStyle(fontSize: 16, fontFamily: "Flutter")),
+                    )).toList(),
                   ),
-                ),       
-              ],
-            ),
-          );
+                  Column(
+                    children: data.vaccineDoses!.map((dose) => Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text('${dose.vaccineAge}', style: const TextStyle(fontSize: 16, fontFamily: "Flutter")),
+                    )).toList(),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    ],
+  ),
+);
+
         },
       ),
     );
   }
 
   Future<Data> fetchVaccineDetails(int? id) async {
-    final response = await http.get(Uri.parse('http://172.16.2.23:8000/api/StageVaccineDose/$id'));
+    final response = await http.get(Uri.parse('http://192.168.43.207:8000/api/StageVaccineDose/$id'));
     if (response.statusCode == 200) {
       var jsonResponse = json.decode(response.body);
       return DescriptionVaccine.fromJson(jsonResponse).data!;

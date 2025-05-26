@@ -30,20 +30,3 @@ class Custombutton extends GetView<OnboardingControllerImp> {
     );
   }
 }
-// class tt extends GetView<OnboardingControllerImp>{
-//   const tt({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       padding: const EdgeInsets.symmetric(horizontal: 10),
-//       child: Row(
-        
-//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          
-//         children:controller.getButtons(),
-                          
-//       ),
-//     );
-//   }
-// }

@@ -19,7 +19,7 @@ class Customslider extends GetView<OnboardingControllerImp> {
       children: [
         
         const SizedBox(height: 60,),
-        //Image.asset("images/logo.jpg",height: 200,),
+        
         Image.asset(
           OnBoardingList[i].image!,
           height: 200,),
@@ -31,7 +31,7 @@ class Customslider extends GetView<OnboardingControllerImp> {
           alignment: Alignment.center,
           child: Text(OnBoardingList[i].body!,textAlign: TextAlign.center,style: TextStyle(height: 1.5,fontWeight: FontWeight.bold,fontFamily: "Flutter",color: Color.fromARGB(255, 50, 50, 50)),)
           ),
-          //SizedBox(height: 50,),
+          
           
         ],
       )

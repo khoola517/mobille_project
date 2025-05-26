@@ -11,7 +11,7 @@ abstract class SplashscreenController extends GetxController{
 class SplashScreenImp extends SplashscreenController{
   @override
   goToSplashscreen() {
-    //Get.off(AppRoute.onboarding);
+    
     Get.off(OnBoarding());
   }
 

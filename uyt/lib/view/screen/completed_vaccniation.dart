@@ -101,7 +101,7 @@ class CompletedVaccniation extends StatelessWidget {
                               ],
                     
                             ),
-                            //const Text('✅ التطعيمات المكتملة:',style:  TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                            
                             const SizedBox(height: 7),
                                 ...?data.completedDoses?.doses?.map((dose) => ListTile(
                                 leading: Container(height: 25,width:25,color: Colors.green, child: const  Icon(Icons.check, color: Colors.white)),
@@ -109,11 +109,10 @@ class CompletedVaccniation extends StatelessWidget {
                                 subtitle: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    //Text('موعد التطعيم${dose.visitDate ?? ''} \n ${dose.doseNumber ?? ''} '),
-                                    Text('الجرعة: ${dose.doseNumber ?? ''} ',style:  TextStyle(fontSize: 16,fontFamily: "Flutter"),),
+                                    
                                     Text('تم تطعيم في ${dose.visitDate ?? ''}',style:const  TextStyle(fontSize: 16,fontFamily: "Flutter"),),
                                     const SizedBox(height: 10,),
-                                    //Text('${dose.visitDate ?? ''}',style:const  TextStyle(fontSize: 16,fontFamily: "Flutter"),),
+                                    
                                     const Divider(),
                                   ],
                                 ),

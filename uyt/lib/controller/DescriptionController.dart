@@ -14,7 +14,7 @@ class VaccineController extends GetxController {
   Future<List<DetailesVaccine>> fetchVaccines() async {
     try {
       final response = await http.get(
-        Uri.parse('http://172.16.2.23:8000/api/StageVaccineDose'),
+        Uri.parse('http://192.168.43.207:8000/api/StageVaccineDose'),
       );
 
       if (response.statusCode == 200) {
@@ -22,7 +22,7 @@ class VaccineController extends GetxController {
         print(response.statusCode);
         print('JSON Response: $jsonResponse');
         print(response.body);
-        // تأكد إنه List
+        
         if (jsonResponse is List) {
           return jsonResponse
               .map((json) => DetailesVaccine.fromJson(json))

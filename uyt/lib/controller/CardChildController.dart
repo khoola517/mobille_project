@@ -15,7 +15,7 @@ class CardChildController extends GetxController {
     isLoading.value = true;
     errorMessage.value = '';
     try {
-      final url = Uri.parse("http://172.16.2.23:8000/api/cardDetails/$childId"); // غيّر الرابط حسب API
+      final url = Uri.parse("http://192.168.43.207:8000/api/cardDetails/$childId"); 
       final response = await http.get(url);
 
       if (response.statusCode == 200) {

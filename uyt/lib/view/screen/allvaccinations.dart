@@ -2,19 +2,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uyt/controller/AllVaccinationController.dart';
-import 'package:uyt/controller/Allvaccinations_controller.dart';
 import 'package:uyt/controller/Api_controller.dart';
 import 'package:uyt/core/constant/color.dart';
 import 'package:uyt/model/AllVaccinationModel.dart';
 import 'package:uyt/view/screen/completed_vaccniation.dart';
 import 'package:uyt/view/screen/upcoming_vaccinations.dart';
 import 'package:uyt/view/widget/auth/custombuttonauth.dart';
-//import 'package:uyt/view/widget/customvaccinationpage.dart';
+
 import 'package:uyt/view/widget/onboarding/custombutton.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-//import '../controller/vaccination_controller.dart';
+
 
 class VaccinationDetailsPage extends StatelessWidget {
   final int childId;
@@ -26,7 +25,7 @@ class VaccinationDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(title: const Text('تفاصيل التطعيم')),
+      
       body: FutureBuilder<AllVaccinationModel>(
         future: controller.fetchVaccinationData(childId),
         builder: (context, snapshot) {
@@ -41,30 +40,20 @@ class VaccinationDetailsPage extends StatelessWidget {
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16),
             child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.stretch,
+              
               children: [
                 const SizedBox(height: 20,),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    //     IconButton(
-                    //       onPressed: (){ 
-                    //          Get.back();
-                    //    }, 
-                    //   icon:const Icon(
-                    //   Icons.arrow_back_ios,
-                    //   color: ColorApp.primarycolor,),
-                    // ),
-                    // Align(
-                    //   alignment: Alignment.center,
-                    //   child: Text('${data.childName ?? 'غير معروف'}',textAlign: TextAlign.center,
-                    //       style:const TextStyle(fontSize: 24, fontWeight: FontWeight.bold,fontFamily: "Flutter")),
-                    // ),
+                    IconButton(onPressed: (){Get.back();}, icon: Icon(Icons.arrow_back_ios,color: ColorApp.primarycolor)),
+                    Expanded(child: Center(child: Text('${data.childName?? ''}',style:const TextStyle(fontSize: 24, fontWeight: FontWeight.bold,fontFamily: "Flutter")))),
+                
+                    
                   ],
                 ),
                 
-                 Text('${data.childName?? ''}',style:const TextStyle(fontSize: 24, fontWeight: FontWeight.bold,fontFamily: "Flutter")),
-                // Text('الجنس: ${data.childGender ?? ''}'),
+                 
                 
                 const SizedBox(height: 10,),
         SizedBox(
@@ -106,9 +95,7 @@ class VaccinationDetailsPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
 
                       children: [
-                        //Text('📌 جميع التطعيمات: ${data.completedDoses?.allDoses ?? 0}'),
-                        //Text('✅ المكتملة: ${data.completedDoses?.completedDoses ?? 0}'),
-                        //Text('🕒 القادمة: ${data.upcomingDoses?.upComingDoses ?? 0}'),
+                        
                       Text('التطعيمات المكتملة(${data.completedDoses?.allDoses ?? 0}/${data.completedDoses?.completedDoses?? 0})',
                       style:const TextStyle(fontSize: 18, fontWeight: FontWeight.bold,fontFamily: "Flutter")),
                                     const SizedBox(height: 10),

@@ -54,18 +54,14 @@ class CardChildView extends StatelessWidget {
                         Text("${child?.name ?? ''}",style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,fontFamily: "Flutter"),),
                         Text("تاريخ الميلاد: ${child?.birthDate ?? ''}",style:const TextStyle(fontSize: 14,fontFamily: "Flutter"),),
                         Text("رقم البطاقة: ${child?.cardNumber ?? ''}",style:const TextStyle(fontSize: 14,fontFamily: "Flutter"),),
-                        //Text("العمر: ${child?.childAge ?? ''}",style:const TextStyle(fontSize: 18),),
+                        
                       ],
                     ),
                   ),
                 ),
-                // Text("👶 الاسم: ${child?.name ?? ''}"),
-                // Text("🎂 تاريخ الميلاد: ${child?.birthDate ?? ''}"),
-                // Text("🪪 رقم البطاقة: ${child?.cardNumber ?? ''}"),
-                // Text("📏 العمر: ${child?.childAge ?? ''}"),
-                //const Divider(),
+               
                 if (model.cardDetails != null)
-                //...model.cardDetails!.map((stage) =>// بعد التأكد أن model.cardDetails != null
+                
 Card(
   color: Colors.white,
   elevation: 4,
@@ -75,12 +71,7 @@ Card(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        // const Text(
-        //   "💉 جدول التطعيمات",
-        //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        //   textDirection: TextDirection.rtl,
-        // ),
-       // const SizedBox(height: 10),
+        
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
             child: DataTable(
@@ -113,19 +104,7 @@ Card(
   ),
 )
 
-                  // ...model.cardDetails!.map((stage) => Card(
-                  //   child: Column(
-                  //         crossAxisAlignment: CrossAxisAlignment.start,
-                  //         children: [
-                  //           Text("📘 المرحلة: ${stage.stageName}", style: TextStyle(fontWeight: FontWeight.bold)),
-                  //           ...stage.doses!.map((dose) => ListTile(
-                  //                 title: Text("💉 ${dose.vaccineName}"),
-                  //                 subtitle: Text("الجرعة: ${dose.doseNumber}, التاريخ: ${dose.vaccinationDate ?? 'غير مطعّم'}${dose.lastDateForVaccination}"),
-                  //               )),
-                  //           Divider(),
-                  //         ],
-                  //       ),
-                  // )),
+                 
                   
               ],
             ),

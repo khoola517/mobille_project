@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:uyt/model/AllVaccinationModel.dart';
-//import '../model/all_vaccination_model.dart';
+
 
 class VaccinationDetailsController extends GetxController {
   
   Future<AllVaccinationModel> fetchVaccinationData(int childId) async {
     try {
       final response = await http.get(
-        Uri.parse('http://172.16.2.23:8000/api/getAllChildDoses/$childId'),
+        Uri.parse('http://192.168.43.65:8000/api/getAllChildDoses/$childId'),
         
       );
 

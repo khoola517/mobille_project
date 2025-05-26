@@ -26,8 +26,6 @@ class _LoginState extends State<Login> {
   final _passwordController = TextEditingController();
   final AuthController _authController = Get.put(AuthController());
     LoginControllerImp controller = Get.put(LoginControllerImp());
-     //LoginController controller1=Get.put(LoginControllerImp());
-    //AllvaccinationsControllerImp controller2=Get.put(AllvaccinationsControllerImp());
     return Scaffold(
       body: Form(
         key: controller.formstate,
@@ -45,21 +43,21 @@ class _LoginState extends State<Login> {
                   return validInput(val!, 3, 100, "username");
               },
               hinttext: "2".tr,
-              //onChanged: (value)=>controller.username, 
+              
               ),
               Customtextformfield(
                 mycontroller: controller.password, 
                 valid: (val){
                   return validInput(val!, 3, 30, "password");
               },hinttext: "3".tr,
-             // onChanged: (value)=>controller.password,
+             
                ),
               const SizedBox(height: 80,),
               Custombuttonauth(
                 text: "4".tr,
                 
                 onPressed: (){
-                  //Get.to(HomePage());
+                  
                   controller.login();
                   }, 
                 width: 200, 

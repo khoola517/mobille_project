@@ -1,24 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:uyt/controller/Allvaccinations_controller.dart';
 import 'package:uyt/controller/Api_controller.dart';
 import 'package:uyt/core/constant/color.dart';
 import 'package:uyt/model/AllVaccinationModel.dart';
-
-
 import '../../controller/AllVaccinationController.dart';
-
 class UpcomingVaccinations extends StatelessWidget {
   final int childId;
    UpcomingVaccinations({super.key, required this.childId});
   final controller = Get.put(VaccinationDetailsController());
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(title: const Text('تفاصيل التطعيم')),
+      
       body: FutureBuilder<AllVaccinationModel>(
         future: controller.fetchVaccinationData(childId),
         builder: (context, snapshot) {
@@ -93,16 +87,13 @@ class UpcomingVaccinations extends StatelessWidget {
                                ),
                                     const SizedBox(height: 10,),
                                     Text('${data.completedDoses?.allDoses ?? 0}/${data.upcomingDoses?.upComingDoses ?? 0} تطعيمات قيد الأنتظار',style: TextStyle(fontFamily: "Flutter"),),
-                                    //Text('12/${data.upcomingDoses?? 0}تم اكمالها',style:const TextStyle(fontSize: 20, )),
-                                    //Text('✅ المكتملة: ${data.completedDoses?.completedDoses ?? 0}'),
-                                    //Text('🕒 القادمة: ${data.upcomingDoses?.upComingDoses ?? 0}'),
-                                    
+                                   
                                   ],
                                  ),
                               ),
                               ],
                             ),
-                            //const Text('✅ التطعيمات المكتملة:',style:  TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                            
                             const SizedBox(height: 7),
                             Text('التطعيمات قيد الانتظار(${data.upcomingDoses?.upComingDoses ?? 0}/${data.completedDoses?.allDoses ?? 0})',
                                   style:const TextStyle(fontSize: 18, fontWeight: FontWeight.bold,fontFamily: "Flutter")),

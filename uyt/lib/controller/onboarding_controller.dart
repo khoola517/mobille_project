@@ -10,7 +10,7 @@ import 'package:uyt/view/widget/auth/custombuttonauth.dart';
 abstract class OnBoardingController extends GetxController{
     next();
     onPageChanged(int index);
-     //goToHomeScreen();
+     
 }
 class OnboardingControllerImp extends OnBoardingController{
     late PageController pageController;
@@ -42,14 +42,14 @@ class OnboardingControllerImp extends OnBoardingController{
     if (currentPage == 0) {
       return [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start, // لضبط الزر في اليسار
+          mainAxisAlignment: MainAxisAlignment.start, 
         children: [
-          //customiconbutton(),
+         
          
         ],
         ),
         customiconbutton(),
-        //customiconbutton(),
+        
       ]; 
     } else if (currentPage == 1) {
       return [
@@ -63,27 +63,6 @@ class OnboardingControllerImp extends OnBoardingController{
           child:  Text("21".tr,style: TextStyle(color: Colors.black,fontSize: 16,fontFamily: "Flutter"),),
         ),
         customiconbutton(),
-        
-//       customiconbutton() {
-//       return Container(
-//         decoration: BoxDecoration(
-//                       //color: Colors.blue[100],
-//                       color: Colors.blue,
-//                       shape: BoxShape.circle
-//                     ),
-//         child: TextButton(
-//           onPressed: () {
-//             pageController.nextPage(
-//               duration: const Duration(milliseconds: 500),
-//               curve: Curves.easeInOut,
-//             );
-//           },
-//           child:const Icon(Icons.arrow_forward),style: IconButton.styleFrom(backgroundColor: Colors.blue[100],foregroundColor: Colors.white),
-//           ),
-//         );
-      
-//      }
-// }
       ];
     } else {
       return [

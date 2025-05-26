@@ -50,20 +50,19 @@ import '../view/screen/new1.dart';
   ];
   
   List<Widget> screen = [
-    //Homescree(),
     IndexPage(),
-    //Homescreen(),
+
     VaccineListView(),
     
-    Profile(),
-    // ProfileScreen(userId: userId),  
+    //Profile(),
+    
   ];
  int currentindex = 0; 
 }
 class HomescreenControllerImp extends HomescreenController{
   @override
   goToAllvaccinations() {
-    // TODO: implement goToAllvaccinations
+    
     throw UnimplementedError();
   }
   
