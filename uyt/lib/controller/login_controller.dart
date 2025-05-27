@@ -6,7 +6,7 @@ import 'package:uyt/view/screen/homepage.dart';
 
 class AuthController extends GetxController {
   static const String endpoinr = "/api/login";
-  static const String baseUrl = "http://192.168.43.65:8000/api/login";
+  static const String baseUrl = "http://172.16.2.254:8000/api/login";
   var isLoading = false.obs;
   Future<void> login(String username, String password) async {
     isLoading(true);

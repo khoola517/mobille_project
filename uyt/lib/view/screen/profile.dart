@@ -5,14 +5,8 @@ import 'package:uyt/controller/editeprofile_controller.dart';
 import 'package:uyt/controller/profile_controller.dart';
 import 'package:uyt/core/constant/color.dart';
 import 'package:uyt/model/ProfileModel.dart';
-import 'package:uyt/model/homescreenModel.dart';
-import 'package:uyt/uilies/validation.dart';
-import 'package:uyt/view/screen/homescreen.dart';
-import 'package:uyt/view/widget/auth/custombuttonauth.dart';
-import 'package:uyt/view/widget/auth/customtextformfieldauthauth.dart';
-import 'package:uyt/view/widget/profile.dart/customtextformfiled.dart';
-import 'package:flutter/material.dart';
 
+import '../widget/auth/custombuttonauth.dart';
 class ProfileScreen extends StatelessWidget {
   final int userId;
 
@@ -112,6 +106,7 @@ class ProfileScreen extends StatelessWidget {
                  phoneNumber: phoneController.text,
               );
               Get.back();
+              
             },),
                 Custombuttonauth(text: "28".tr,onPressed: (){Get.back();},   width: 75, height: 50, color: ColorApp.primarycolor, textColor: ColorApp.backgroundcolor, ),
                

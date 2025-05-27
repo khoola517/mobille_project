@@ -4,17 +4,6 @@ import 'package:uyt/core/constant/route.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:uyt/model/ProfileModel.dart';
-//import '../models/profile_model.dart';
-
-import 'dart:convert';
-import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
-//import 'package:uyt/model/profile_model.dart';
-
-import 'dart:convert';
-import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
-import 'package:get/get.dart';
 class ProfileController extends GetxController with StateMixin<ProfileModel> {
   final int userId;
 
@@ -23,7 +12,7 @@ class ProfileController extends GetxController with StateMixin<ProfileModel> {
   }
 
   Future<void> fetchProfile() async {
-    final url = Uri.parse('http://192.168.43.207:8000/api/parent/edit/$userId');
+    final url = Uri.parse('http://172.16.2.254:8000/api/parent/edit/$userId');
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {

@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
           showSelectedLabels: true,
           showUnselectedLabels: true,
         ),
-body:controller.screen[controller.currentindex],
+        body:controller.screen[controller.currentindex],
        
       ),
     );

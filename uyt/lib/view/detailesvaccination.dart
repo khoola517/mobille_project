@@ -4,12 +4,13 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:uyt/core/constant/color.dart';
 import 'package:uyt/model/DescriptionVaccine.dart';
+import 'package:uyt/model/DetailesVaccine.dart';
 
 class VaccineDetailView extends StatelessWidget {
   final int? vaccineId;
 
   VaccineDetailView({this.vaccineId});
-
+final controller = Get.put(DetailesVaccine());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,9 +103,8 @@ class VaccineDetailView extends StatelessWidget {
       ),
     );
   }
-
-  Future<Data> fetchVaccineDetails(int? id) async {
-    final response = await http.get(Uri.parse('http://192.168.43.207:8000/api/StageVaccineDose/$id'));
+Future<Data> fetchVaccineDetails(int? id) async {
+    final response = await http.get(Uri.parse('http://192.168.43.2227:8000/api/StageVaccineDose/$id'));
     if (response.statusCode == 200) {
       var jsonResponse = json.decode(response.body);
       return DescriptionVaccine.fromJson(jsonResponse).data!;

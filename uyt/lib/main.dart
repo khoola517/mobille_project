@@ -9,7 +9,7 @@ import 'package:uyt/view/screen/completed_vaccniation.dart';
 import 'package:uyt/view/screen/homepage.dart';
 import 'package:uyt/view/screen/homescreen.dart';
 import 'package:uyt/view/screen/login.dart';
-import 'package:uyt/view/screen/new1.dart';
+import 'package:uyt/view/screen/stagesvccination.dart';
 
 import 'package:uyt/view/screen/onboarding.dart';
 import 'package:uyt/view/screen/profile.dart';

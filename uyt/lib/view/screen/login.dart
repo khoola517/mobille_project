@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uyt/controller/login_controller.dart';
 import 'package:uyt/core/constant/color.dart';
-//import 'package:uyt/test/Controller/auth_controller.dart';
 import 'package:uyt/uilies/validation.dart';
 import 'package:uyt/view/widget/auth/custombuttonauth.dart';
 import 'package:uyt/view/widget/auth/customtextformfieldauthauth.dart';
@@ -12,10 +10,7 @@ import 'package:uyt/view/widget/auth/logoauth.dart';
 
 
 class Login extends StatefulWidget {
-  
-  
    const Login({super.key});
-
   @override
   State<Login> createState() => _LoginState();
 }
@@ -47,6 +42,7 @@ class _LoginState extends State<Login> {
               ),
               Customtextformfield(
                 mycontroller: controller.password, 
+                isPassword: true,
                 valid: (val){
                   return validInput(val!, 3, 30, "password");
               },hinttext: "3".tr,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uyt/controller/homescreen_controller.dart';
-import 'package:uyt/view/new2.dart';
+import 'package:uyt/view/detailesvaccination.dart';
 import 'package:uyt/view/screen/profile.dart';
 import 'package:uyt/view/screen/completed_vaccniation.dart';
 import 'package:uyt/view/screen/homescreen.dart';
@@ -13,35 +13,8 @@ import 'package:uyt/controller/homescreen_controller.dart';
 import 'package:uyt/view/screen/profile.dart';
 import 'package:uyt/view/screen/completed_vaccniation.dart';
 import 'package:uyt/view/screen/homescreen.dart';
-
-import '../view/screen/new1.dart';
-
-
-// class HomePageController extends GetxController {
-//   final int userId;
-
-//   HomePageController({required this.userId}) {
-//     screens = [
-//       Homescreen(),
-//       IndexPage(token: ''),
-
-//        //ProfileScreen(userId: userId),
-       
-//     ];
-//   }
-
-//   List<String> titles = [
-//     "9".tr,
-//     "24".tr,
-//     "7".tr,
-//   ];
-
-//   late List<Widget> screens;
-
-//   int currentindex = 0;
-// }
-
-
+import 'package:uyt/view/screen/setting.dart';
+import '../view/screen/stagesvccination.dart';
  class HomePageController extends GetxController{
   List<String> titles =[
     "9".tr,
@@ -54,7 +27,7 @@ import '../view/screen/new1.dart';
 
     VaccineListView(),
     
-    //Profile(),
+    Setting(),
     
   ];
  int currentindex = 0; 

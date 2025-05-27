@@ -9,7 +9,7 @@ class VaccinationDetailsController extends GetxController {
   Future<AllVaccinationModel> fetchVaccinationData(int childId) async {
     try {
       final response = await http.get(
-        Uri.parse('http://192.168.43.65:8000/api/getAllChildDoses/$childId'),
+        Uri.parse('http://172.16.2.254:8000/api/getAllChildDoses/$childId'),
         
       );
 

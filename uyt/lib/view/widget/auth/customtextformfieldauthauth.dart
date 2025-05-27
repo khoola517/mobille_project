@@ -5,13 +5,14 @@ import 'package:uyt/core/constant/color.dart';
 class Customtextformfield extends StatelessWidget {
   final String hinttext ;
   final TextEditingController mycontroller ;
-  final String? Function(String?) valid;
+  final String? Function(String?) valid; 
+  final bool isPassword;
   //final bool isnumber;
   const Customtextformfield(
     {super.key, 
     required this.hinttext, 
     required this.mycontroller, 
-    required this.valid});
+    required this.valid,  this.isPassword=false});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,6 +21,7 @@ class Customtextformfield extends StatelessWidget {
       child: TextFormField(
         validator: valid,
         controller: mycontroller,
+        obscureText: isPassword,
         textAlign: TextAlign.center,
         decoration: InputDecoration(
           contentPadding:const EdgeInsets.symmetric(vertical: 5),

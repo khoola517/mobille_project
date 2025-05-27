@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import '../../controller/DescriptionController.dart';
 import '../../core/constant/color.dart';
 import '../../model/DetailesVaccine.dart';
-import '../new2.dart';
+import '../detailesvaccination.dart';
 
 class VaccineListView extends StatefulWidget {
   @override

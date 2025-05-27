@@ -1,29 +1,17 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:uyt/controller/Api_controller.dart';
 import 'package:uyt/controller/homescreen_controller.dart';
 import 'package:uyt/core/constant/color.dart';
-import 'package:uyt/main.dart';
 import 'package:uyt/model/IndexModel.dart';
-import 'package:uyt/model/homescreenModel.dart';
 import 'package:uyt/view/screen/allvaccinations.dart';
 import 'package:uyt/view/screen/cardchild.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:uyt/view/screen/login.dart';
 import 'package:uyt/view/screen/profile.dart';
 import 'package:uyt/view/screen/resetpassword.dart';
 import 'package:uyt/view/widget/auth/custombuttonauth.dart';
-import 'package:uyt/view/widget/auth/customicon.dart';
 class IndexPage extends StatelessWidget {
-  
   final token=Get.arguments??"not token";
-  
-
   IndexPage({super.key,  });
-
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(IndexPageController());
@@ -51,8 +39,7 @@ class IndexPage extends StatelessWidget {
             drawer: Drawer(
               child: ListView(
                 children: [
-           
-            
+                  
             ListTile(
               trailing: Icon(Icons.arrow_forward,
                color: ColorApp.primarycolor,
@@ -73,6 +60,7 @@ class IndexPage extends StatelessWidget {
             },
             
                         ),
+                       
                 ],
               ),
             ),
@@ -197,7 +185,8 @@ if (data.notifications != null && data.notifications!.isNotEmpty)
               onTap: () {
                 
                 if (child.iD != null) {
-                  Get.to(() => VaccinationDetailsPage(childId: child.iD!,));
+                  //Get.to(() => VaccinationDetailsPage(childId: child.iD!,));
+                  Get.to(() => CardChildView(childId: child.iD!));
                 } else {
                   Get.snackbar('خطأ', 'لا يوجد معرّف لهذا الطفل');
                 }
@@ -247,7 +236,8 @@ if (data.notifications != null && data.notifications!.isNotEmpty)
         child: Custombuttonauth(
           onPressed: (){
             if (child.iD != null) {
-              Get.to(() => CardChildView(childId: child.iD!));
+              //Get.to(() => CardChildView(childId: child.iD!));
+              Get.to(() => VaccinationDetailsPage(childId: child.iD!,));
             }
           },
           text: " بطاقة ${child.firstName}",

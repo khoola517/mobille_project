@@ -65,9 +65,7 @@ void showChangePasswordDialog(BuildContext mainContext, int userId) {
                     resetPassword: model,
                   );
             
-                  Navigator.pop(context); // إغلاق الديالوج
-            
-                  // ✅ عرض الرسالة في السياق الرئيسي
+                  Navigator.pop(context); 
                   ScaffoldMessenger.of(mainContext).showSnackBar(
                     SnackBar(
                       content: Text(result

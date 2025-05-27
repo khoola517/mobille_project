@@ -10,7 +10,7 @@ class ProfileEditController extends GetxController {
     required String email,
     required String phoneNumber,
   }) async {
-    final url = Uri.parse('http://192.168.43.65:8000/api/parent/update/$userId');
+    final url = Uri.parse('http://172.16.2.254:8000/api/parent/update/$userId');
 
     final body = jsonEncode({
       "first_name": firstName,

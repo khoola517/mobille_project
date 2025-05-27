@@ -12,7 +12,7 @@ class IndexPageController extends GetxController {
   Future<IndexModel> fetchData(String token) async {
     try {
       final response = await http.get(
-        Uri.parse('http://192.168.43.65:8000/api/parent/index'), 
+        Uri.parse('http://172.16.2.254:8000/api/parent/index'), 
         headers: {
           'Authorization': 'Bearer $token',
         },
