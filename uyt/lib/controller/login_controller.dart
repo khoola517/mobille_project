@@ -6,7 +6,7 @@ import 'package:uyt/view/screen/homepage.dart';
 
 class AuthController extends GetxController {
   static const String endpoinr = "/api/login";
-  static const String baseUrl = "http://172.16.2.254:8000/api/login";
+  static const String baseUrl = "http://192.168.1.100:8000/api/login";
   var isLoading = false.obs;
   Future<void> login(String username, String password) async {
     isLoading(true);
@@ -20,8 +20,8 @@ class AuthController extends GetxController {
           'Accept': 'application/json'
         },
         body: jsonEncode({
-          'username': username, 
-          'password': password, 
+          'username': username,
+          'password': password,
         }),
       );
 
@@ -30,7 +30,7 @@ class AuthController extends GetxController {
             'password': password
           })}');
 
-      print('Response body: ${response.body}'); 
+      print('Response body: ${response.body}');
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
@@ -40,9 +40,9 @@ class AuthController extends GetxController {
         if (token != null) {
           print('Token: $token');
           print('Success: $data');
-          
+
           print('true : ${response.statusCode}');
-          Get.off(HomePage(),arguments: token);
+          Get.off(HomePage(), arguments: token);
         } else {
           Get.snackbar('خطأ', 'فشل تسجيل الدخول: لا يوجد توكن TOKEN $token');
         }
@@ -53,7 +53,7 @@ class AuthController extends GetxController {
     } catch (e) {
       Get.snackbar('خطأ', 'حدث خطأ أثناء kkkkkkkkkkkkkkk! ${e}');
       print(e);
-      
+
       //print('Error type: ${e.runtimeType}');
       //print(e);
     } finally {

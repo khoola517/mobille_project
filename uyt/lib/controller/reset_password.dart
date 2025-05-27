@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../model/reset_password.dart';
@@ -12,7 +11,8 @@ class PasswordController {
     required int userId,
     required ResetPassword resetPassword,
   }) async {
-    final url = Uri.parse('http://172.16.2.254:8000/api/parent/changePassword/$userId');
+    final url = Uri.parse(
+        'http://192.168.1.100:8000/api/parent/changePassword/$userId');
 
     final response = await http.patch(
       url,
@@ -32,4 +32,3 @@ class PasswordController {
     }
   }
 }
-

@@ -7,6 +7,7 @@ import 'package:uyt/core/constant/color.dart';
 import 'package:uyt/model/ProfileModel.dart';
 
 import '../widget/auth/custombuttonauth.dart';
+
 class ProfileScreen extends StatelessWidget {
   final int userId;
 
@@ -23,96 +24,145 @@ class ProfileScreen extends StatelessWidget {
       text: user.phoneNumber ?? '',
     );
 
-    final editController = Get.find<ProfileEditController>(); 
+    final editController = Get.find<ProfileEditController>();
 
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          
           content: SingleChildScrollView(
-           
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Align(alignment: Alignment.centerRight,child: const Text("الأسم",style: TextStyle(fontWeight: FontWeight.bold,fontFamily: "Flutter"),)),
-                  const SizedBox(height: 10,),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: const Text("الأسم",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Flutter")),
+                  ),
+                  const SizedBox(height: 10),
                   SizedBox(
                     height: 35,
                     child: TextField(
                       style: const TextStyle(fontFamily: "Flutter"),
                       controller: nameController,
-                      decoration: const InputDecoration(suffix: Icon(Icons.person_2_outlined,color: Colors.grey,),border: OutlineInputBorder(),contentPadding: EdgeInsets.all(10),
-                       focusedBorder:const OutlineInputBorder(
-                       borderSide: BorderSide(color:ColorApp.primarycolor,width: 2)
-                     ),),
-                     
+                      decoration: const InputDecoration(
+                        suffix:
+                            Icon(Icons.person_2_outlined, color: Colors.grey),
+                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.all(10),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: ColorApp.primarycolor, width: 2)),
+                      ),
                     ),
-                    
                   ),
-                  const SizedBox(height: 10,),
-                  Align(alignment: Alignment.centerRight,child: const Text('البريد الألكتروني',style: TextStyle(fontWeight: FontWeight.bold,fontFamily: "Flutter"),)),
-                 const SizedBox(height: 10,),
+                  const SizedBox(height: 10),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: const Text('البريد الألكتروني',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Flutter")),
+                  ),
+                  const SizedBox(height: 10),
                   SizedBox(
                     height: 35,
                     child: TextField(
                       style: const TextStyle(fontFamily: "Flutter"),
                       controller: emailController,
                       decoration: const InputDecoration(
-                        suffix: Icon(Icons.email_outlined,color: Colors.grey,),border: OutlineInputBorder(),contentPadding: EdgeInsets.all(10),
-                        focusedBorder:const OutlineInputBorder(
-                       borderSide: BorderSide(color:ColorApp.primarycolor,width: 2)
-                     ),
-                      
+                        suffix: Icon(Icons.email_outlined, color: Colors.grey),
+                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.all(10),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: ColorApp.primarycolor, width: 2)),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10,),
-                  Align(alignment: Alignment.centerRight,child: const Text('رقم الهاتف',style: TextStyle(fontWeight: FontWeight.bold,fontFamily: "Flutter"),)),
-                 const SizedBox(height: 10,),
+                  const SizedBox(height: 10),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: const Text('رقم الهاتف',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Flutter")),
+                  ),
+                  const SizedBox(height: 10),
                   SizedBox(
                     height: 35,
                     child: TextField(
                       style: const TextStyle(fontFamily: "Flutter"),
                       controller: phoneController,
-                      decoration: const InputDecoration(suffix: Icon(Icons.phone_android_outlined,color: Colors.grey,),border: OutlineInputBorder(),contentPadding: EdgeInsets.all(10),
-                      focusedBorder:const OutlineInputBorder(
-                       borderSide: BorderSide(color:ColorApp.primarycolor,width: 2)
-                     ),),
+                      decoration: const InputDecoration(
+                        suffix: Icon(Icons.phone_android_outlined,
+                            color: Colors.grey),
+                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.all(10),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: ColorApp.primarycolor, width: 2)),
+                      ),
                     ),
                   ),
-                 const SizedBox(height: 20,),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
-            
           ),
           actions: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Custombuttonauth(text: "تعديل".tr, width: 85, height: 50,color: ColorApp.primarycolor, textColor: ColorApp.backgroundcolor, 
-            onPressed: (){
-              final parts = nameController.text.trim().split(' ');
-              final firstName = parts.isNotEmpty ? parts.first : '';
-              final lastName = parts.length > 1 ? parts.sublist(1).join(' ') : '';
-              editController.updateProfile( 
-                userId: userId,
-                firstName: firstName,
-                lastName: lastName,
-                email: emailController.text,
-                 phoneNumber: phoneController.text,
-              );
-              Get.back();
-              
-            },),
-                Custombuttonauth(text: "28".tr,onPressed: (){Get.back();},   width: 75, height: 50, color: ColorApp.primarycolor, textColor: ColorApp.backgroundcolor, ),
-               
-              ],)
-             
-        
+                Custombuttonauth(
+                    text: "تعديل".tr,
+                    width: 85,
+                    height: 50,
+                    color: ColorApp.primarycolor,
+                    textColor: ColorApp.backgroundcolor,
+                    onPressed: () async {
+                      final parts = nameController.text.trim().split(' ');
+                      final firstName = parts.isNotEmpty ? parts.first : '';
+                      final lastName =
+                          parts.length > 1 ? parts.sublist(1).join(' ') : '';
+
+                      try {
+                        print("بدأ تحديث البروفايل");
+                        await editController.updateProfile(
+                          userId: userId,
+                          firstName: firstName,
+                          lastName: lastName,
+                          email: emailController.text.trim(),
+                          phoneNumber: phoneController.text.trim(),
+                        );
+                        print("تم تحديث البروفايل");
+
+                        // تحديث البيانات في الصفحة بعد التعديل
+                        await Get.find<ProfileController>().fetchProfile();
+
+                        print("جاري إغلاق الدايلوق");
+                        Get.back(); // هذا يجب أن يغلق الدايلوق
+                      } catch (e) {
+                        print("حدث خطأ: $e");
+                        Get.snackbar("خطأ", "حدث خطأ أثناء تعديل البيانات: $e");
+                      }
+                    }),
+                Custombuttonauth(
+                  text: "28".tr,
+                  onPressed: () {
+                    Get.back();
+                  },
+                  width: 75,
+                  height: 50,
+                  color: ColorApp.primarycolor,
+                  textColor: ColorApp.backgroundcolor,
+                ),
+              ],
+            )
           ],
         );
       },
@@ -127,9 +177,9 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       //drawer: Drawer(),
       appBar: AppBar(
-       actions: [
-        //IconButton(onPressed: (){Get.off();}, icon: Icon(Icons.arrow_forward,color: ColorApp.primarycolor,)),
-       ],
+        actions: [
+          //IconButton(onPressed: (){Get.off();}, icon: Icon(Icons.arrow_forward,color: ColorApp.primarycolor,)),
+        ],
       ),
       body: controller.obx(
         (user) {
@@ -143,7 +193,8 @@ class ProfileScreen extends StatelessWidget {
             text: user?.phoneNumber ?? '',
           );
 
-          return Padding(
+          return SafeArea(
+              child: SingleChildScrollView(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
@@ -157,46 +208,62 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Text("${user?.firstName ?? ''} ${user?.lastName ?? ''}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,fontFamily: "Flutter"),),
+                Text(
+                  "${user?.firstName ?? ''} ${user?.lastName ?? ''}",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      fontFamily: "Flutter"),
+                ),
                 const SizedBox(height: 15),
                 TextField(
                   style: const TextStyle(fontFamily: "Flutter"),
                   controller: nameController,
                   readOnly: true,
-                  decoration: const InputDecoration(prefixIcon: Icon(Icons.person_outline,color: Colors.grey,)),
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                    Icons.person_outline,
+                    color: Colors.grey,
+                  )),
                 ),
                 TextField(
                   style: const TextStyle(fontFamily: "Flutter"),
                   controller: emailController,
                   readOnly: true,
-                  decoration: const InputDecoration(prefixIcon: Icon(Icons.email_outlined,color: Colors.grey,)),
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                    Icons.email_outlined,
+                    color: Colors.grey,
+                  )),
                 ),
                 TextField(
                   style: const TextStyle(fontFamily: "Flutter"),
                   controller: phoneController,
                   readOnly: true,
-                  decoration: const InputDecoration(prefixIcon: Icon(Icons.phone_android_outlined,color: Colors.grey,)),
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                    Icons.phone_android_outlined,
+                    color: Colors.grey,
+                  )),
                 ),
                 const SizedBox(height: 90),
-               Custombuttonauth(
-                text: "تعديل الملف الشخصي",
-                
-                onPressed: (){
-                  
-                  if (user != null) {
+                Custombuttonauth(
+                  text: "تعديل الملف الشخصي",
+                  onPressed: () {
+                    if (user != null) {
                       showEditDialog(context, user);
                     }
-                  }, 
-                width: 180, 
-                height: 50, 
-                color: ColorApp.primarycolor, 
-                textColor: ColorApp.backgroundcolor,
-                 ),
-               
+                  },
+                  width: 180,
+                  height: 50,
+                  color: ColorApp.primarycolor,
+                  textColor: ColorApp.backgroundcolor,
+                ),
+
                 // ),
               ],
             ),
-          );
+          ));
         },
         onLoading: const Center(child: CircularProgressIndicator()),
         onError: (error) => Center(child: Text("حدث خطأ: $error")),
@@ -205,4 +272,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-

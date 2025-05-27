@@ -7,61 +7,64 @@ import 'package:uyt/view/widget/auth/custombuttonauth.dart';
 import 'package:uyt/view/widget/auth/customtextformfieldauthauth.dart';
 import 'package:uyt/view/widget/auth/logoauth.dart';
 
-
-
 class Login extends StatefulWidget {
-   const Login({super.key});
+  const Login({super.key});
   @override
   State<Login> createState() => _LoginState();
 }
+
 class _LoginState extends State<Login> {
   @override
+  @override
   Widget build(BuildContext context) {
-     final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final AuthController _authController = Get.put(AuthController());
+    final _usernameController = TextEditingController();
+    final _passwordController = TextEditingController();
+    final AuthController _authController = Get.put(AuthController());
     LoginControllerImp controller = Get.put(LoginControllerImp());
+
     return Scaffold(
-      body: Form(
-        key: controller.formstate,
-        child: Container(
-          padding:const EdgeInsets.symmetric(vertical: 15,horizontal: 35),
-          child: Column(
-            children: [
-              const SizedBox(height: 150,),
-              const Logoauth(),
-              const SizedBox(height: 30,),
-              Customtextformfield(
-                
-                mycontroller: controller.username,
-                valid:(val) {
-                  return validInput(val!, 3, 100, "username");
-              },
-              hinttext: "2".tr,
-              
+      // ✅ يتأكد أن الصفحة تتحرك لما يطلع الكيبورد
+      resizeToAvoidBottomInset: true,
+      body: SafeArea(
+        child: Form(
+          key: controller.formstate,
+          child: SingleChildScrollView(
+            // ✅ يجعل الواجهة تتحرك فوق الكيبورد
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 35),
+              child: Column(
+                children: [
+                  const SizedBox(height: 150),
+                  const Logoauth(),
+                  const SizedBox(height: 30),
+                  Customtextformfield(
+                    mycontroller: controller.username,
+                    valid: (val) {
+                      return validInput(val!, 3, 100, "username");
+                    },
+                    hinttext: "2".tr,
+                  ),
+                  Customtextformfield(
+                    mycontroller: controller.password,
+                    valid: (val) {
+                      return validInput(val!, 3, 30, "password");
+                    },
+                    hinttext: "3".tr,
+                  ),
+                  const SizedBox(height: 80),
+                  Custombuttonauth(
+                    text: "4".tr,
+                    onPressed: () {
+                      controller.login();
+                    },
+                    width: 200,
+                    height: 50,
+                    color: ColorApp.primarycolor,
+                    textColor: ColorApp.backgroundcolor,
+                  ),
+                ],
               ),
-              Customtextformfield(
-                mycontroller: controller.password, 
-                isPassword: true,
-                valid: (val){
-                  return validInput(val!, 3, 30, "password");
-              },hinttext: "3".tr,
-             
-               ),
-              const SizedBox(height: 80,),
-              Custombuttonauth(
-                text: "4".tr,
-                
-                onPressed: (){
-                  
-                  controller.login();
-                  }, 
-                width: 200, 
-                height: 50, 
-                color: ColorApp.primarycolor, 
-                textColor: ColorApp.backgroundcolor,
-                 ),
-            ],
+            ),
           ),
         ),
       ),

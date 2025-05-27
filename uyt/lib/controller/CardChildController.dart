@@ -4,8 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:uyt/model/CardChildModel.dart';
 import 'dart:convert';
 
-
-
 class CardChildController extends GetxController {
   var isLoading = true.obs;
   var errorMessage = ''.obs;
@@ -15,7 +13,8 @@ class CardChildController extends GetxController {
     isLoading.value = true;
     errorMessage.value = '';
     try {
-      final url = Uri.parse("http://172.16.2.254:8000/api/cardDetails/$childId"); 
+      final url =
+          Uri.parse("http://192.168.1.100:8000/api/cardDetails/$childId");
       final response = await http.get(url);
 
       if (response.statusCode == 200) {

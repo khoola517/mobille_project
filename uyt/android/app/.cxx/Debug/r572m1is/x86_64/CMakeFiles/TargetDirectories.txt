@@ -1,0 +1,2 @@
+C:/Users/Raghad/Documents/mobille_project/uyt/android/app/.cxx/Debug/r572m1is/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/Raghad/Documents/mobille_project/uyt/android/app/.cxx/Debug/r572m1is/x86_64/CMakeFiles/rebuild_cache.dir

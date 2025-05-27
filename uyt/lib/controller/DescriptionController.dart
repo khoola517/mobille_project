@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -9,7 +8,7 @@ class VaccineController extends GetxController {
   Future<List<DetailesVaccine>> fetchVaccines() async {
     try {
       final response = await http.get(
-        Uri.parse('http://172.16.2.254:8000/api/StageVaccineDose'),
+        Uri.parse('http://192.168.1.100:8000/api/StageVaccineDose'),
       );
 
       if (response.statusCode == 200) {
@@ -17,11 +16,11 @@ class VaccineController extends GetxController {
         print(response.statusCode);
         print('JSON Response: $jsonResponse');
         print(response.body);
-        
+
         if (jsonResponse is List) {
           return jsonResponse
               .map((json) => DetailesVaccine.fromJson(json))
-              .toList();   
+              .toList();
         } else {
           throw Exception('Expected a list in the response body');
         }
@@ -34,7 +33,3 @@ class VaccineController extends GetxController {
     }
   }
 }
-
-
-
-
